@@ -1,6 +1,5 @@
 package Logfiles;
 import java.io.File;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class Logfiles {
