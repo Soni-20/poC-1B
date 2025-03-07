@@ -1,5 +1,6 @@
 package Logfiles;
 import java.io.File;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Logfiles {
@@ -18,12 +19,13 @@ public class Logfiles {
             System.out.println("Folder is not a directory");
         }
         else if (((f.list())).length==0) {
-            System.out.println("folder is empty");
+            System.out.println("empty folder");
 
         } else
         {
             System.out.println("Processing");
         }
+
             }
 
     }
