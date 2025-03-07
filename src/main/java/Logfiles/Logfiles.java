@@ -1,31 +1,36 @@
 package Logfiles;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Logfiles {
     public static void main(String[] args)
     {
         Scanner sc=new Scanner(System.in);
-        String inFolder;
-        while (true){
-        System.out.println("Enter Folder path:");
-        inFolder=sc.nextLine();
-        if (inFolder.isEmpty())
+        //while (true)
         {
-            System.out.println("Error:Folder cannot be empty.please add files.");
-            continue;
+        System.out.println("Enter Folder path:");
+        String inFolder=sc.nextLine();
+        File f=new File(inFolder);
+        if (!(f.exists()))
+        {
+            System.out.println("Folder not exists.");
         }
-        File folder=new File(inFolder);
-        if (!folder.exists()|| !folder.isDirectory()) {
-            System.out.println("Error:Folder does not exist or is not a directory.Try again");
-            continue;
+        else if (!(f.isDirectory()))
+        {
+            System.out.println("Folder is not a directory");
         }
-        break;}
-        sc.close();
-        final String folderPath=inFolder;
+        else if (((Objects.requireNonNull(f.list()))).length==0) {
+            System.out.println("folder is empty");
 
-
+        } else
+        {
+            System.out.println("Processing");
+        }
+            }
 
     }
 }
