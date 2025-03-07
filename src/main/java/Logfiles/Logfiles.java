@@ -18,7 +18,7 @@ public class Logfiles {
             System.out.println("Folder is not a directory");
         }
         else if (((f.list())).length==0) {
-            System.out.println("empty folder");
+            System.out.println("folder is empty");
 
         } else
         {
