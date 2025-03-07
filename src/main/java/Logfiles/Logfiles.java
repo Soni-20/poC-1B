@@ -13,11 +13,11 @@ public class Logfiles {
         inFolder=sc.nextLine();
         if (inFolder.isEmpty())
         {
-            System.out.println("Error:Folder path cannot be empty.please enter a valid path.");
+            System.out.println("Error:Folder cannot be empty.please add files.");
             continue;
         }
         File folder=new File(inFolder);
-        if (!folder.exists()||folder.isDirectory()) {
+        if (!folder.exists()|| !folder.isDirectory()) {
             System.out.println("Error:Folder does not exist or is not a directory.Try again");
             continue;
         }
