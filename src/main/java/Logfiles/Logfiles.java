@@ -25,18 +25,7 @@ public class Logfiles {
         sc.close();
         final String folderPath=inFolder;
 
-        Thread processing=new Thread(()-> {
-            System.out.println("Processing folder:"+ folderPath);
-        try{
-            Thread.sleep(1000);
-        }
-        catch (InterruptedException e)
-        {
-            System.out.println("Thread was interrupted");
-        }
-        System.out.println("processing completed");
-        });
-        processing.start();
+
 
     }
 }
