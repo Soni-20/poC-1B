@@ -8,8 +8,7 @@ public class Logfiles {
     public static void main(String[] args)
     {
         Scanner sc=new Scanner(System.in);
-        //while (true)
-        {
+
         System.out.println("Enter Folder path:");
         String inFolder=sc.nextLine();
         File f=new File(inFolder);
@@ -28,7 +27,7 @@ public class Logfiles {
         {
             System.out.println("Processing");
         }
-            }
+
 
     }
 }
