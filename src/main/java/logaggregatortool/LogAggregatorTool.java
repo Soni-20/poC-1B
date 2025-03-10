@@ -3,22 +3,23 @@ package logaggregatortool;
 import java.io.File;
 import java.util.Scanner;
 
+import static logaggregatortool.Constants.*;
+
 public class LogAggregatorTool {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter Folder path:");
-        String inFolder = sc.nextLine();
-        File f = new File(inFolder);
-        String Processing_Message = "Processing";
-        if (!(f.exists())) {
-            System.out.println("Folder not exists.");
-        } else if (!(f.isDirectory())) {
+        System.out.println(Folder_Path);
+        String Path_Folder = sc.nextLine();
+        File file = new File(Path_Folder);
+        if (!(file.exists())) {
+            System.out.println(Folder_not_Exists);
+        }  else if (((file.list())).length == 0) {
+            System.out.println(Folder_Empty);
 
-            System.out.println("Folder is not a directory");
-        } else if (((f.list())).length == 0) {
-            System.out.println("folder is empty");
+        } else if (!(file.isDirectory())) {
 
-        } else {
+            System.out.println(Not_a_Directory);
+        }else {
             System.out.println(Processing_Message);
         }
     }
