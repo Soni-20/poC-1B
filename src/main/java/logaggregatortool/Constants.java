@@ -2,11 +2,10 @@ package logaggregatortool;
 
 public class Constants {
 
-    public static String Not_a_Directory = "Folder is not a directory.";
-    public static String Folder_Empty = "Folder is Empty.";
-    public static String Folder_not_Exists = "Folder not exists.";
-    public static String Folder_Path = "Enter the folder path";
-   public static String Processing_Message = "Processing";
-
+    public static final String Folder_not_Exists = "Folder not exists.";
+    public static final String Folder_Empty = "Folder is Empty.";
+    public static final String Not_a_Directory = "Folder is not a directory.";
+    public static final String Processing_Message = "Processing files in the folder.";
+    public static final String File_Found = "folder contains log files";
 
 }
