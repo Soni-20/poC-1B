@@ -1,8 +1,5 @@
 package logaggregatortool;
-
 import java.io.File;
-
-
 public class LogAggregatorTool {
     public static void main(String[] args) {
         String Path_Folder = args[0];
