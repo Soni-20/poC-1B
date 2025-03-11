@@ -1,12 +1,14 @@
 package logaggregatortool;
-import java.io.File;
-import static logaggregatortool.Constants.Folder_Empty;
-import static logaggregatortool.Constants.Invalid_Folder;
-import static logaggregatortool.Constants.Processing_Message;
-import static logaggregatortool.Constants.Invalid_Files;
-import static logaggregatortool.Constants.Valid_Files;
 
-public class Validator {
+import java.io.File;
+
+import static logaggregatortool.LogAggregatorToolConstants.Folder_Empty;
+import static logaggregatortool.LogAggregatorToolConstants.Invalid_Folder;
+import static logaggregatortool.LogAggregatorToolConstants.Processing_Message;
+import static logaggregatortool.LogAggregatorToolConstants.Invalid_Files;
+import static logaggregatortool.LogAggregatorToolConstants.Valid_Files;
+
+public class LogAggregatorValidator {
     public void validatorFolder(File User_input_path) {
         String[] files = User_input_path.list();
         if (!(User_input_path.exists())) {
