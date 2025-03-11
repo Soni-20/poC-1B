@@ -17,7 +17,6 @@ public class LogAggregatorValidator {
         }
         if (User_input_path.length() == 0) {
             System.out.println(Folder_Empty);
-            return;
         } else {
             System.out.println(Processing_Message);
             int invalidcount = 0;
