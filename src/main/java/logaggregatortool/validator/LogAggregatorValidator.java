@@ -1,6 +1,6 @@
-package logaggregatorvalidator;
+package logaggregatortool.validator;
 
-import logaggregatortoolconstants.LogAggregatorToolConstants;
+import logaggregatortool.constants.LogAggregatorToolConstants;
 
 import java.io.File;
 
@@ -18,6 +18,7 @@ public class LogAggregatorValidator {
         }
         return true;
     }
+
     // Check if the folder is empty
     public boolean isFolderEmpty(File userInputPath) {
         String[] files = userInputPath.list();
