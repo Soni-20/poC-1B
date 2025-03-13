@@ -4,9 +4,7 @@ package logaggregatortool.constants;
  * This class defines constants used in the Log Aggregator Tool.
  * It contains various string messages used for logging and validation.*/
 public class LogAggregatorToolConstants {
-    /**
-     * Message displayed when the specified folder is empty.
-     */
+    public static final String ERROR_OCCURED = "Error:No Folder path provided.please specify.Please provide a valid folder path.";
     public static final String FOLDER_EMPTY = "Folder is Empty.";
     public static final String INVALID_FILES = "Count of invalid files:";
     public static final String INVALID_FOLDER = "Invalid_Folderpath .please provide a valid folderpath.";
