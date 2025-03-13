@@ -4,7 +4,8 @@ import logaggregatortool.process.LogAggregatorProcessFiles;
 import logaggregatortool.validator.LogAggregatorValidator;
 
 import java.io.File;
-import java.util.List;
+
+import static logaggregatortool.constants.LogAggregatorToolConstants.ERROR_OCCURED;
 
 /**
  * The main class of LogAggregatorTool.
@@ -13,14 +14,15 @@ import java.util.List;
  */
 public class LogAggregatorTool {
     public static void main(String[] args) {
+        if (args.length == 0) {
+            System.out.println(ERROR_OCCURED);
+        }
         String pathFolder = args[0];
         File userInputPath = new File(pathFolder);
-        // Create an instance of LogAggregatorValidator and validate the folder
         LogAggregatorValidator validator = new LogAggregatorValidator();
         if (!validator.isValidFolder(userInputPath) || validator.isFolderEmpty(userInputPath)) {
             return;
         }
-        //Process files after validation
         LogAggregatorProcessFiles process = new LogAggregatorProcessFiles();
         process.processFiles(userInputPath);
     }
