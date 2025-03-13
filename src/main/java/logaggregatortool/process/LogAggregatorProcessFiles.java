@@ -1,13 +1,17 @@
 package logaggregatortool.process;
 
 import logaggregatortool.constants.LogAggregatorToolConstants;
-
 import java.io.File;
+import static logaggregatortool.constants.LogAggregatorToolConstants.LOG_EXTENSION;
 
+/**
+ * count the number of valid files
+ * count the number of invalid files
+*/
 public class LogAggregatorProcessFiles {
     // Process files: count valid (.log) and invalid files
-    public void processFiles(File userInputPath) {
-        String[] files = userInputPath.list();
+    public void processFiles(File userInputFolderPath) {
+        String[] files = userInputFolderPath.list();
         System.out.println(LogAggregatorToolConstants.PROCESSING_MESSAGE);
         int invalidCount = 0;
         int validCount = 0;
@@ -15,7 +19,7 @@ public class LogAggregatorProcessFiles {
         // Iterate through files and count valid (.log) and invalid files
         for (String fileName : files) {
             count++;
-            if (!fileName.endsWith(".log")) {
+            if (!fileName.endsWith(LOG_EXTENSION)) {
                 invalidCount++;
             } else {
                 validCount++;
