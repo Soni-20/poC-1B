@@ -9,7 +9,6 @@ import java.io.File;
  * It checks whether the folder exists,whether it is empty .
  */
 public class LogAggregatorValidator {
-    // Validate user-provided folder path
     public boolean isValidFolder(File userInputPath) {
         // Check if the folder exists
         if (!userInputPath.exists() || !userInputPath.isDirectory()) {
@@ -19,7 +18,6 @@ public class LogAggregatorValidator {
         return true;
     }
 
-    // Check if the folder is empty
     public boolean isFolderEmpty(File userInputPath) {
         String[] files = userInputPath.list();
         if (files.length == 0) {
