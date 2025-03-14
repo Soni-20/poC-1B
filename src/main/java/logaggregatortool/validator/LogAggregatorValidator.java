@@ -10,14 +10,14 @@ import static logaggregatortool.constants.LogAggregatorToolConstants.ERROR_OCCUR
  */
 public class LogAggregatorValidator {
     //validate for empty arguments
-    public boolean isArgumentsProvided(String[] args)
-    {
+    public boolean isArgumentsProvided(String[] args) {
         if (args.length == 0) {
             System.out.println(ERROR_OCCURED);
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
+
     //validate Folder exists
     public boolean isValidFolder(File userInputFolderPath) {
         // Check if the folder exists
@@ -27,10 +27,11 @@ public class LogAggregatorValidator {
         }
         return true;
     }
+
     //validate folder empty
     public boolean isFolderEmpty(File userInputFolderPath) {
-        String[] files = userInputFolderPath.list();
-        if (files.length == 0) {
+        String[] inputFiles = userInputFolderPath.list();
+        if (inputFiles.length == 0) {
             System.out.println(LogAggregatorToolConstants.FOLDER_EMPTY);
             return true;
         }
