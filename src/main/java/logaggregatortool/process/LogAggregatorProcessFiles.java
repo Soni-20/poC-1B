@@ -11,13 +11,13 @@ import static logaggregatortool.constants.LogAggregatorToolConstants.LOG_EXTENSI
 public class LogAggregatorProcessFiles {
     // Process files: count valid (.log) and invalid files
     public void processFiles(File userInputFolderPath) {
-        String[] files = userInputFolderPath.list();
+        String[] inputFiles = userInputFolderPath.list();
         System.out.println(LogAggregatorToolConstants.PROCESSING_MESSAGE);
         int invalidCount = 0;
         int validCount = 0;
         int count = 0;
         // Iterate through files and count valid (.log) and invalid files
-        for (String fileName : files) {
+        for (String fileName : inputFiles) {
             count++;
             if (!fileName.endsWith(LOG_EXTENSION)) {
                 invalidCount++;
