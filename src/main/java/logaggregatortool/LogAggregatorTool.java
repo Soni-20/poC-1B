@@ -2,7 +2,6 @@ package logaggregatortool;
 
 import logaggregatortool.process.LogAggregatorProcessFiles;
 import logaggregatortool.validator.LogAggregatorValidator;
-
 import java.io.File;
 import java.util.List;
 
