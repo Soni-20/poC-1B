@@ -2,7 +2,6 @@ package logaggregatortool.validator;
 
 import logaggregatortool.constants.LogAggregatorToolConstants;
 import java.io.File;
-import static logaggregatortool.constants.LogAggregatorToolConstants.ERROR_OCCURED;
 
 /**
  * This class is responsible for validating the folder provided by the user.
@@ -12,7 +11,7 @@ public class LogAggregatorValidator {
     //validate for empty arguments
     public boolean isArgumentsProvided(String[] args) {
         if (args.length == 0) {
-            System.out.println(ERROR_OCCURED);
+            System.out.println(LogAggregatorToolConstants.ERROR_OCCURED);
             return true;
         }
         return false;

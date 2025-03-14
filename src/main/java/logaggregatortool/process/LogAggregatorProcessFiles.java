@@ -26,8 +26,6 @@ public class LogAggregatorProcessFiles {
             }
         }
         // Print the results
-        System.out.println(LogAggregatorToolConstants.TOTAL_FILES + count);
-        System.out.println(LogAggregatorToolConstants.INVALID_FILES + invalidCount);
-        System.out.println(LogAggregatorToolConstants.VALID_FILES + validCount);
+        System.out.println(LogAggregatorToolConstants.TOTAL_FILES + count +" "+ LogAggregatorToolConstants.INVALID_FILES+" "+ invalidCount+" "+ LogAggregatorToolConstants.VALID_FILES+" " + validCount);
     }
 }
