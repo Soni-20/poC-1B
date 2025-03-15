@@ -23,6 +23,7 @@ public class LogAggregatorToolWriting {
 
     /**
      * Writes the provided sorted log data to a log file.
+     *
      * @return true if the file is successfully written, otherwise false.
      */
     public boolean writeLogFile(ArrayList<String> sortedData) {
