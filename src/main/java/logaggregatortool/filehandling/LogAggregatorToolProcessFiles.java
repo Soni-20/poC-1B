@@ -13,31 +13,27 @@ public class LogAggregatorToolProcessFiles {
     /**
      * call all the logprocessing classes and verify if file processing is succes or not
      */
-    public void logAggregatorProcessFiles(String[] args){
-            try {
-                String userFilePath = args[0];
+    public void logAggregatorProcessFiles(String[] args) {
+        try {
+            String userLogFilePath = args[0];
+            LogAggregatorToolReading logReader = new LogAggregatorToolReading();
+            ArrayList<String> fileData = logReader.logAggregatorToolReading(userLogFilePath);
 
-                // Read log data from the files in the directory.
-                LogAggregatorToolReading logReader = new LogAggregatorToolReading();
-                ArrayList<String> fileData = logReader.logAggregatorToolReading(userFilePath);
+            LogAggregatorToolSorting logSorter = new LogAggregatorToolSorting();
+            ArrayList<String> sortedData = logSorter.sortLogData(fileData);
 
-                // Sort the read log data.
-                LogAggregatorToolSorting logSorter = new LogAggregatorToolSorting();
-                ArrayList<String> sortedData = logSorter.sortLogData(fileData);
+            LogAggregatorToolWriting logWriter = new LogAggregatorToolWriting();
+            boolean isFileProcessed = logWriter.writeLogFile(sortedData);
 
-                // Write the sorted log data to a file.
-                LogAggregatorToolWriting logWriter = new LogAggregatorToolWriting();
-                boolean isFileProcessed = logWriter.writeLogFile(sortedData);
-
-                if (isFileProcessed) {
-                    System.out.println(LogAggregatorToolConstants.FILE_PROCESSING_SUCCESS + NEW_LINE +
-                            LogAggregatorToolConstants.SORTED_FILE_PATH + logWriter.sortedLogPath);
-                } else {
-                    System.out.println(LogAggregatorToolConstants.FILE_PROCESSING_FAILED);
-                }
-            } catch (Exception exception) {
-                exception.printStackTrace();
+            if (isFileProcessed) {
+                System.out.println(LogAggregatorToolConstants.FILE_PROCESSING_SUCCESS + NEW_LINE +
+                        LogAggregatorToolConstants.SORTED_FILE_PATH + logWriter.sortedLogPath);
+            } else {
+                System.out.println(LogAggregatorToolConstants.FILE_PROCESSING_FAILED);
             }
+        } catch (Exception exception) {
+            exception.printStackTrace();
         }
     }
+}
 
