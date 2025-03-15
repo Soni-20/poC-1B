@@ -21,7 +21,7 @@ public class LogAggregatorTool {
             return;
         }
         logAggregatorValidator.isValidateFiles(args);
-        LogAggregatorToolProcessFiles process=new LogAggregatorToolProcessFiles();
+        LogAggregatorToolProcessFiles process = new LogAggregatorToolProcessFiles();
         process.logAggregatorProcessFiles(args);
     }
 }
