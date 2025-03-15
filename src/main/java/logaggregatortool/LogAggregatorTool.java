@@ -1,7 +1,8 @@
 package logaggregatortool;
 
-import logaggregatortool.process.LogAggregatorProcessFiles;
+import logaggregatortool.filehandling.LogAggregatorToolProcessFiles;
 import logaggregatortool.validator.LogAggregatorValidator;
+
 import java.io.File;
 
 /**
@@ -16,10 +17,11 @@ public class LogAggregatorTool {
         }
         String folderPath = args[0];
         File userInputFolderPath = new File(folderPath);
-        if (!logAggregatorValidator.isValidFolder(userInputFolderPath) || logAggregatorValidator.isFolderEmpty(userInputFolderPath)) {
+        if (!logAggregatorValidator.isValidFolder(args) || logAggregatorValidator.isFolderEmpty(args)) {
             return;
         }
-        LogAggregatorProcessFiles process = new LogAggregatorProcessFiles();
-        process.processFiles(userInputFolderPath);
+        logAggregatorValidator.isValidateFiles(args);
+        LogAggregatorToolProcessFiles process=new LogAggregatorToolProcessFiles();
+        process.logAggregatorProcessFiles(args);
     }
 }
