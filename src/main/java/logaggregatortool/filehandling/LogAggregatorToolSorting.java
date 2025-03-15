@@ -11,12 +11,10 @@ import java.util.Date;
  * Class for sorting the merged log data.
  */
 public class LogAggregatorToolSorting {
-
     /**
      * Method to sort all logs based on date and time.
      * @return Sorted ArrayList of log data.
      */
-
         public ArrayList<String> sortLogData(ArrayList<String> fileData) {
             SimpleDateFormat dateFormat = new SimpleDateFormat(LogAggregatorToolConstants.SIMPLE_DATE_TIME_PATTERN);
             Collections.sort(fileData, (logLineDate1, logLineDate2) -> {
@@ -28,7 +26,6 @@ public class LogAggregatorToolSorting {
                         return date1.compareTo(date2);
                     }
                 } catch (Exception e) {
-                    // If parsing fails, leave the order unchanged.
                     return 0;
                 }
                 return 0;
