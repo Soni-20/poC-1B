@@ -6,6 +6,9 @@ package logaggregatortool.constants;
  */
 public class LogAggregatorToolConstants {
     public static final String ERROR_OCCURED = "No Folder path provided.";
+    public static final String READ_ERROR="Error reading file:";
+    public static final String DIRECTORY_EMPTY="No files found in the specified directory:";
+    public static final String DIRECTORY_CREATION_FAILED="Failed to create output directory:";
     public static final String FILE_PROCESSING_FAILED = "File Processing failed";
     public static final String FILE_PROCESSING_SUCCESS = "File Processing success";
     public static final String FILE_NAME_DATETIME_FORMAT = "yyyy-MM-dd_HH_mm_ss";
