@@ -10,6 +10,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import static logaggregatortool.constants.LogAggregatorToolConstants.DIRECTORY_EMPTY;
+
 /**
  * Class for writing the sorted log data to a single log file.
  */
@@ -20,23 +22,19 @@ public class LogAggregatorToolWriting {
     public String sortedLogPath = outputDirectory + LogAggregatorToolConstants.SORTED_FILE_NAME + currentDateTime + LogAggregatorToolConstants.LOG_EXTENSION;
 
     /**
-     * Method for writing the sorted log data to a log file.
-     *
-     * @param userFilePath Path of the user log file.
-     * @return `true` if the file is successfully written, otherwise `false`.
+     * Writes the provided sorted log data to a log file.
+     * @return true if the file is successfully written, otherwise false.
      */
-    public boolean writeLogFile(String userFilePath) {
+    public boolean writeLogFile(ArrayList<String> sortedData) {
         File outputDir = new File(outputDirectory);
         if (!outputDir.exists() && !outputDir.mkdirs()) {
-            System.err.println("Failed to create output directory: " + outputDirectory);
+            System.err.println(DIRECTORY_EMPTY + outputDirectory);
             return false;
         }
         try {
-            LogAggregatorToolSorting fileSorter = new LogAggregatorToolSorting();
-            ArrayList<String> fileData = fileSorter.logAggregatorToolSorting(userFilePath);
             File sortedFile = new File(sortedLogPath);
             try (FileWriter writer = new FileWriter(sortedFile)) {
-                for (String line : fileData) {
+                for (String line : sortedData) {
                     writer.write(line + LogAggregatorToolConstants.NEW_LINE);
                 }
             }
