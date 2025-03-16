@@ -1,9 +1,7 @@
 package logaggregatortool.filehandling;
 
 import logaggregatortool.constants.LogAggregatorToolConstants;
-
 import java.util.ArrayList;
-
 import static logaggregatortool.constants.LogAggregatorToolConstants.NEW_LINE;
 
 /**
@@ -12,6 +10,7 @@ import static logaggregatortool.constants.LogAggregatorToolConstants.NEW_LINE;
 public class LogAggregatorToolProcessFiles {
     /**
      * call all the logprocessing classes and verify if file processing is succes or not
+     * @param args
      */
     public void logAggregatorProcessFiles(String[] args) {
         try {
