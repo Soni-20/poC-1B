@@ -1,7 +1,7 @@
 package logaggregatortool.filehandling;
 
 import logaggregatortool.constants.LogAggregatorToolConstants;
-
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,8 +25,8 @@ public class LogAggregatorToolSorting {
                         Date date2 = dateFormat.parse(logLineDate2);
                         return date1.compareTo(date2);
                     }
-                } catch (Exception e) {
-                    return 0;
+                } catch (ParseException e) {
+                    System.out.println("Parsing failed:"+e.getMessage());
                 }
                 return 0;
             });
