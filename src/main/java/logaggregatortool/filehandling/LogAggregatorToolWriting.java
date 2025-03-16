@@ -2,14 +2,12 @@ package logaggregatortool.filehandling;
 
 
 import logaggregatortool.constants.LogAggregatorToolConstants;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-
 import static logaggregatortool.constants.LogAggregatorToolConstants.DIRECTORY_EMPTY;
 
 /**
@@ -19,7 +17,7 @@ public class LogAggregatorToolWriting {
 
     private final String outputDirectory = LogAggregatorToolConstants.OUTPUT_DIRECTORY;
     private final String currentDateTime = new SimpleDateFormat(LogAggregatorToolConstants.FILE_NAME_DATETIME_FORMAT).format(new Date());
-    public String sortedLogPath = outputDirectory + LogAggregatorToolConstants.SORTED_FILE_NAME + currentDateTime + LogAggregatorToolConstants.LOG_EXTENSION;
+    public String sortedLogPath = outputDirectory + LogAggregatorToolConstants.SORTED_LOG_FILE_NAME + currentDateTime + LogAggregatorToolConstants.LOG_EXTENSION;
 
     /**
      * Writes the provided sorted log data to a log file.
