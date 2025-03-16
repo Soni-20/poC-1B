@@ -2,7 +2,6 @@ package logaggregatortool;
 
 import logaggregatortool.filehandling.LogAggregatorToolProcessFiles;
 import logaggregatortool.validator.LogAggregatorValidator;
-
 import java.io.File;
 
 /**
@@ -21,7 +20,5 @@ public class LogAggregatorTool {
             return;
         }
         logAggregatorValidator.isValidateFiles(args);
-        LogAggregatorToolProcessFiles process = new LogAggregatorToolProcessFiles();
-        process.logAggregatorProcessFiles(args);
     }
 }
