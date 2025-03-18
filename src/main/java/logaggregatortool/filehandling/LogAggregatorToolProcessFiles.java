@@ -1,8 +1,12 @@
 package logaggregatortool.filehandling;
 
 import logaggregatortool.constants.LogAggregatorToolConstants;
+import java.io.File;
 import java.util.ArrayList;
-import static logaggregatortool.constants.LogAggregatorToolConstants.NEW_LINE;
+import java.util.Arrays;
+
+import static java.lang.String.join;
+import static logaggregatortool.constants.LogAggregatorToolConstants.*;
 
 /**
  * logprocessor class for calling logreader,logsorter,logwriter
@@ -10,9 +14,27 @@ import static logaggregatortool.constants.LogAggregatorToolConstants.NEW_LINE;
 public class LogAggregatorToolProcessFiles {
     /**
      * call all the logprocessing classes and verify if file processing is succes or not
+     *
      * @param args
      */
     public void logAggregatorProcessFiles(String[] args) {
+        String folderPath = args[0];
+        ArrayList<String> fileNames = new ArrayList<>();
+        File userInputFolderPath = new File(folderPath);
+        int totalFiles=userInputFolderPath.listFiles().length;
+        String[] inputFiles = userInputFolderPath.list();
+        // Iterate through files and count valid (.log) and invalid files
+       int invalidCount = 0;
+        int validCount = 0;
+        int count = 0;
+        for (String fileName : inputFiles) {
+            count++;
+            if (!fileName.endsWith(LOG_EXTENSION)) {
+                invalidCount++;
+            } else {
+                validCount++;
+            }
+        }
         try {
             String userLogFilePath = args[0];
             LogAggregatorToolReading logReader = new LogAggregatorToolReading();
@@ -35,4 +57,3 @@ public class LogAggregatorToolProcessFiles {
         }
     }
 }
-
