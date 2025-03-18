@@ -18,23 +18,6 @@ public class LogAggregatorToolProcessFiles {
      * @param args
      */
     public void logAggregatorProcessFiles(String[] args) {
-        String folderPath = args[0];
-        ArrayList<String> fileNames = new ArrayList<>();
-        File userInputFolderPath = new File(folderPath);
-        int totalFiles=userInputFolderPath.listFiles().length;
-        String[] inputFiles = userInputFolderPath.list();
-        // Iterate through files and count valid (.log) and invalid files
-       int invalidCount = 0;
-        int validCount = 0;
-        int count = 0;
-        for (String fileName : inputFiles) {
-            count++;
-            if (!fileName.endsWith(LOG_EXTENSION)) {
-                invalidCount++;
-            } else {
-                validCount++;
-            }
-        }
         try {
             String userLogFilePath = args[0];
             LogAggregatorToolReading logReader = new LogAggregatorToolReading();
