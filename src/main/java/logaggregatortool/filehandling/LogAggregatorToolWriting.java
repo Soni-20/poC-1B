@@ -16,8 +16,9 @@ public class LogAggregatorToolWriting {
 
     private final String currentDateTime = new SimpleDateFormat(LogAggregatorToolConstants.FILE_NAME_DATETIME_FORMAT).format(new Date());
     public String outputFilePath;
-    public String sortedLogPath = outputFilePath + LogAggregatorToolConstants.SORTED_LOG_FILE_NAME + currentDateTime + LogAggregatorToolConstants.LOG_EXTENSION;
-    String outputFolder;
+    public String outputFolder;
+
+    public String sortedLogPathName = LogAggregatorToolConstants.SORTED_LOG_FILE_NAME + currentDateTime + LogAggregatorToolConstants.LOG_EXTENSION;
 
     /**
      * Writes the provided sorted log data to a log file.
@@ -26,19 +27,18 @@ public class LogAggregatorToolWriting {
      */
     public boolean writeLogFile(ArrayList<String> sortedData) {
         try {
-            String sortedFilePath = sortedLogPath;
+            String sortedFileName = sortedLogPathName;
             System.out.println(LogAggregatorToolConstants.USER_OUTPUT_FOLDER_PATH);
             if (!verifyUserInputpath()) {
                 verifyUserInputpath();
             }
             {
-                File sortedFile = new File(sortedLogPath);
-                File file = new File(outputFolder + sortedFilePath);
+                File file = new File(outputFolder + sortedFileName);
                 FileWriter writer = new FileWriter(file);
                 for (Object line : sortedData) {
                     writer.write((String) line);
                     writer.write(LogAggregatorToolConstants.NEW_LINE);
-                    outputFilePath = outputFolder + sortedFilePath;
+                    outputFilePath = outputFolder + sortedFileName;
                 }
             }
             return true;

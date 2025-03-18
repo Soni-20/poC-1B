@@ -47,8 +47,9 @@ public class LogAggregatorToolProcessFiles {
             boolean isFileProcessed = logWriter.writeLogFile(sortedData);
 
             if (isFileProcessed) {
+                String ouputFolderPath=logWriter.outputFilePath;
                 System.out.println(LogAggregatorToolConstants.FILE_PROCESSING_SUCCESS + NEW_LINE +
-                        LogAggregatorToolConstants.SORTED_FILE_PATH + logWriter.sortedLogPath);
+                        LogAggregatorToolConstants.SORTED_FILE_PATH +ouputFolderPath);
             } else {
                 System.out.println(LogAggregatorToolConstants.FILE_PROCESSING_FAILED);
             }
