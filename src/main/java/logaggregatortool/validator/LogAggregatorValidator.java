@@ -1,7 +1,6 @@
 package logaggregatortool.validator;
 
 import logaggregatortool.constants.LogAggregatorToolConstants;
-import logaggregatortool.filehandling.LogAggregatorToolProcessFiles;
 import java.io.File;
 import static logaggregatortool.constants.LogAggregatorToolConstants.LOG_EXTENSION;
 
@@ -18,7 +17,6 @@ public class LogAggregatorValidator {
         }
         return false;
     }
-
     //validate Folder exists
     public boolean isValidFolder(String[] args) {
         // Check if the folder exists
@@ -30,20 +28,18 @@ public class LogAggregatorValidator {
         }
         return true;
     }
-
     //validate folder empty
     public boolean isFolderEmpty(String[] args) {
         String folderPath = args[0];
         File userInputFolderPath = new File(folderPath);
         File[] files=userInputFolderPath.listFiles();
-        if (files == null) {
+        if (files.length == 0) {
             System.out.println(LogAggregatorToolConstants.FOLDER_EMPTY);
             return true;
         }
         return false;
     }
-
-    public void isValidateFiles(String[] args) {
+    public boolean isValidateFiles(String[] args) {
         String folderPath = args[0];
         File userInputFolderPath = new File(folderPath);
         System.out.println(LogAggregatorToolConstants.PROCESSING_MESSAGE);
@@ -62,7 +58,6 @@ public class LogAggregatorValidator {
         }
         // Print the results
         System.out.println(LogAggregatorToolConstants.TOTAL_FILES + count + "\n " + LogAggregatorToolConstants.INVALID_FILES  + invalidCount + "\n " + LogAggregatorToolConstants.VALID_FILES  + validCount);
-        LogAggregatorToolProcessFiles fileProcess = new LogAggregatorToolProcessFiles();
-        fileProcess.logAggregatorProcessFiles(args);
-        }
+        return false;
+    }
 }
