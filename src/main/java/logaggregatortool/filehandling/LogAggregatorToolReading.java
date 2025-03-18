@@ -2,7 +2,6 @@ package logaggregatortool.filehandling;
 
 import java.io.*;
 import java.util.ArrayList;
-import static logaggregatortool.constants.LogAggregatorToolConstants.DIRECTORY_CREATION_FAILED;
 import static logaggregatortool.constants.LogAggregatorToolConstants.READ_ERROR;
 
 /**
@@ -19,10 +18,6 @@ public class LogAggregatorToolReading {
         ArrayList<String> fileData = new ArrayList<>();
         File userFolder = new File(userLogFilePath);
         String[] folderContents = userFolder.list();
-
-        if (folderContents == null) {
-            throw new RuntimeException(DIRECTORY_CREATION_FAILED + userLogFilePath);
-        }
         for (String fileName : folderContents) {
             File logFile = new File(userLogFilePath, fileName);
             if (logFile.isFile()) {
@@ -31,7 +26,8 @@ public class LogAggregatorToolReading {
                     while ((line = reader.readLine()) != null) {
                         fileData.add(line);
                     }
-                } catch (IOException exception) {
+                }
+                catch (IOException exception) {
                     throw new RuntimeException(READ_ERROR + fileName, exception);
                 }
             }
