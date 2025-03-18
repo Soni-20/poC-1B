@@ -1,9 +1,10 @@
 package logaggregatortool.filehandling;
-
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import static logaggregatortool.constants.LogAggregatorToolConstants.READ_ERROR;
-
 /**
  * Class for reading log file data.
  * Reads each line of log files and stores them in an ArrayList.
@@ -26,8 +27,7 @@ public class LogAggregatorToolReading {
                     while ((line = reader.readLine()) != null) {
                         fileData.add(line);
                     }
-                }
-                catch (IOException exception) {
+                } catch (IOException exception) {
                     throw new RuntimeException(READ_ERROR + fileName, exception);
                 }
             }
