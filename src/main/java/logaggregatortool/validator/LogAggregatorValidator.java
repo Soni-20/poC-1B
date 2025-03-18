@@ -1,9 +1,7 @@
 package logaggregatortool.validator;
-
 import logaggregatortool.constants.LogAggregatorToolConstants;
 import java.io.File;
 import static logaggregatortool.constants.LogAggregatorToolConstants.LOG_EXTENSION;
-
 /**
  * This class is responsible for validating the folder provided by the user.
  * It checks whether the folder exists,whether it is empty,empty folder path,Number of valid  log and invalid files,.
@@ -12,7 +10,7 @@ public class LogAggregatorValidator {
     //validate for empty arguments
     public boolean isArgumentsProvided(String[] args) {
         if (args.length == 0) {
-            System.out.println(LogAggregatorToolConstants.ERROR_OCCURED);
+            System.out.println(LogAggregatorToolConstants.ERROR_OCCURRED);
             return true;
         }
         return false;
