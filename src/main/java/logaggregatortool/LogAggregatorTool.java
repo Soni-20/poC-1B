@@ -1,8 +1,6 @@
 package logaggregatortool;
-
 import logaggregatortool.filehandling.LogAggregatorToolProcessFiles;
 import logaggregatortool.validator.LogAggregatorValidator;
-
 /**
  * The main class of LogAggregatorTool.
  * This class takes a folder as a command-line argument,
@@ -18,6 +16,6 @@ public class LogAggregatorTool {
         }
         logAggregatorValidator.isValidateFiles(args);
         LogAggregatorToolProcessFiles fileProcess = new LogAggregatorToolProcessFiles();
-            fileProcess.logAggregatorProcessFiles(args);
+            fileProcess.logAggregatorProcessFiles(args[0]);
     }
 }
