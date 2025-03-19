@@ -1,9 +1,6 @@
 package logaggregatortool;
-
-import logaggregatortool.process.LogAggregatorProcessFiles;
+import logaggregatortool.filehandling.LogAggregatorToolProcessFiles;
 import logaggregatortool.validator.LogAggregatorValidator;
-import java.io.File;
-
 /**
  * The main class of LogAggregatorTool.
  * This class takes a folder as a command-line argument,
@@ -14,12 +11,11 @@ public class LogAggregatorTool {
         if (logAggregatorValidator.isArgumentsProvided(args)) {
             return;
         }
-        String folderPath = args[0];
-        File userInputFolderPath = new File(folderPath);
-        if (!logAggregatorValidator.isValidFolder(userInputFolderPath) || logAggregatorValidator.isFolderEmpty(userInputFolderPath)) {
+        if (!logAggregatorValidator.isValidFolder(args) || logAggregatorValidator.isFolderEmpty(args)) {
             return;
         }
-        LogAggregatorProcessFiles process = new LogAggregatorProcessFiles();
-        process.processFiles(userInputFolderPath);
+        logAggregatorValidator.isValidateFiles(args);
+        LogAggregatorToolProcessFiles fileProcess = new LogAggregatorToolProcessFiles();
+            fileProcess.logAggregatorProcessFiles(args[0]);
     }
 }
