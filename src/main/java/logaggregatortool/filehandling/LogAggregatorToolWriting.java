@@ -25,9 +25,9 @@ public class LogAggregatorToolWriting {
             System.out.println(LogAggregatorToolConstants.USER_OUTPUT_FOLDER_PATH);
             if (verifyUserInputpath())
             {
-                File file = new File(outputFolder + sortedFileName);
-                FileWriter writer = new FileWriter(file);
-                for (Object line : sortedData) {
+                File writeSortedFile = new File(outputFolder + sortedFileName);
+                FileWriter writer = new FileWriter(writeSortedFile);
+                for (String line : sortedData) {
                     writer.write((String) line);
                     writer.write(LogAggregatorToolConstants.NEW_LINE);
                 }
