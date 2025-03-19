@@ -1,4 +1,5 @@
 package logaggregatortool.validator;
+import logaggregatortool.DatabaseConnection.LogAggregatorToolAudit;
 import logaggregatortool.constants.LogAggregatorToolConstants;
 import java.io.File;
 import static logaggregatortool.constants.LogAggregatorToolConstants.LOG_EXTENSION;
@@ -11,6 +12,7 @@ public class LogAggregatorValidator {
     public boolean isArgumentsProvided(String[] args) {
         if (args.length == 0) {
             System.out.println(LogAggregatorToolConstants.ERROR_OCCURRED);
+            LogAggregatorToolAudit.insertAudit(null, 0, null, LogAggregatorToolConstants.PROCESS_FAILED, null, LogAggregatorToolConstants.NO_COMMAND_LINE_ARGUMENT);
             return true;
         }
         return false;
@@ -22,6 +24,7 @@ public class LogAggregatorValidator {
         File userInputFolderPath = new File(folderPath);
         if (!userInputFolderPath.exists() || !userInputFolderPath.isDirectory()) {
             System.out.println(LogAggregatorToolConstants.INVALID_FOLDER);
+            LogAggregatorToolAudit.insertAudit(folderPath, 0, null, LogAggregatorToolConstants.PROCESS_FAILED, null, LogAggregatorToolConstants.INVALID_FOLDER);
             return false;
         }
         return true;
@@ -33,6 +36,7 @@ public class LogAggregatorValidator {
         File[] files=userInputFolderPath.listFiles();
         if (files.length == 0) {
             System.out.println(LogAggregatorToolConstants.FOLDER_EMPTY);
+            LogAggregatorToolAudit.insertAudit(folderPath, 0, null, LogAggregatorToolConstants.PROCESS_FAILED, null, LogAggregatorToolConstants.FOLDER_EMPTY);
             return true;
         }
         return false;
