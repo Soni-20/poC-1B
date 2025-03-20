@@ -5,6 +5,7 @@ package logaggregatortool.constants;
  */
 public class LogAggregatorToolConstants {
     public static final String ARRAY_TO_STRING_DELIMITER =" ," ;
+    public static final String AUDIT_ERROR="Audit error";
     public static final String DB_URL = "jdbc:mysql://localhost:3306/logaggregatortool";
     public static final String DB_USERNAME = "root";
     public static final String DB_PASSWORD = "Root@123";
@@ -18,7 +19,6 @@ public class LogAggregatorToolConstants {
     public static final String INSERT_AUDIT_QUERY = "INSERT INTO Audit(folder_path, File_count, file_names, operation_datetime, result, output_file_name, error_message) VALUES(?, ?, ?, NOW(), ?, ?, ?)";
     public static final String LOG_EXTENSION = ".log";
     public static final String NEW_LINE = "\n";
-    public static final String NO_COMMAND_LINE_ARGUMENT = "Please provide folderpath as argument ";
     public static final String PROCESSING_MESSAGE = "Processing";
     public static final String PROCESS_SUCCESS="Success";
     public static final String PROCESS_FAILED="Failed";

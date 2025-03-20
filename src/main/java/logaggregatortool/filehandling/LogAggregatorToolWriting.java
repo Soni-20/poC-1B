@@ -1,5 +1,7 @@
 package logaggregatortool.filehandling;
+
 import logaggregatortool.constants.LogAggregatorToolConstants;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.text.SimpleDateFormat;
@@ -23,8 +25,7 @@ public class LogAggregatorToolWriting {
         try {
             String sortedFileName = sortedLogPathName;
             System.out.println(LogAggregatorToolConstants.USER_OUTPUT_FOLDER_PATH);
-            if (verifyUserInputpath())
-            {
+            if (verifyUserInputpath()) {
                 File writeSortedFile = new File(outputFolder + sortedFileName);
                 FileWriter writer = new FileWriter(writeSortedFile);
                 for (String line : sortedData) {
