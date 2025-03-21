@@ -11,7 +11,6 @@ import java.io.File;
  * It checks whether the folder exists,whether it is empty,empty folder path,Number of valid  log and invalid files,.
  */
 public class LogAggregatorValidator {
-    private AuditDao auditDao;
     /**
      * validate Arguments provided
      * @param args
