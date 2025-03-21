@@ -33,10 +33,8 @@ public class DataBaseConnection {
     }
     public void insertAudit(AuditDao auditDao) {
         String addAuditQuery = LogAggregatorToolConstants.INSERT_AUDIT_QUERY;
-        Connection connection = null;
         PreparedStatement preparedStatement = null;
-        try {
-            connection = getConnection();
+        try (Connection connection = getConnection()){
             preparedStatement = connection.prepareStatement(addAuditQuery);
             preparedStatement.setString(1, auditDao.getFolderPath());
             preparedStatement.setInt(2, auditDao.getNumFiles());
