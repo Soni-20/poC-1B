@@ -1,9 +1,8 @@
 package logaggregatortool.variablesUtil;
 
-import logaggregatortool.DAO.AuditDao;
-
+import logaggregatortool.dao.AuditDao;
 public class LogAggregatorToolUtil {
-    public AuditDao logAggregatorToolUtil(String userInputFolderPath, int logFileCount, String logFileNames, String Result, String sortedFilePath, String ErrorMessage) {
+    public AuditDao buildAuditDao(String userInputFolderPath, int logFileCount, String logFileNames, String Result, String sortedFilePath, String ErrorMessage) {
         AuditDao auditDao = new AuditDao();
         auditDao.setFolderPath(userInputFolderPath);
         auditDao.setNumFiles(logFileCount);

@@ -27,10 +27,10 @@ public class LogAggregatorToolWriting {
             System.out.println(LogAggregatorToolConstants.USER_OUTPUT_FOLDER_PATH);
             if (verifyUserInputpath()) {
                 File writeSortedFile = new File(outputFolder + sortedFileName);
-                FileWriter writer = new FileWriter(writeSortedFile);
+                FileWriter fileWriter = new FileWriter(writeSortedFile);
                 for (String line : sortedData) {
-                    writer.write(line);
-                    writer.write(LogAggregatorToolConstants.NEW_LINE);
+                    fileWriter.write(line);
+                    fileWriter.write(LogAggregatorToolConstants.NEW_LINE);
                 }
                 outputFilePath = outputFolder + sortedFileName;
             }

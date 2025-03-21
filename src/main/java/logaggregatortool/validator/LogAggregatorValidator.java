@@ -1,6 +1,6 @@
 package logaggregatortool.validator;
 
-import logaggregatortool.DAO.AuditDao;
+import logaggregatortool.dao.AuditDao;
 import logaggregatortool.constants.LogAggregatorToolConstants;
 import logaggregatortool.databaseConnection.DataBaseConnection;
 import logaggregatortool.variablesUtil.LogAggregatorToolUtil;
@@ -19,9 +19,9 @@ public class LogAggregatorValidator {
      */
     public boolean isArgumentsProvided(String[] args) {
         if (args.length == 0) {
-            System.out.println(LogAggregatorToolConstants.ERROR_OCCURRED);
+            System.out.println(LogAggregatorToolConstants.NO_FOLDER_PATH_SPECIFIED);
             LogAggregatorToolUtil logAggregatorTool = new LogAggregatorToolUtil();
-            auditDao = logAggregatorTool.logAggregatorToolUtil(null, 0, null, LogAggregatorToolConstants.PROCESS_FAILED, null, "Error");
+            AuditDao auditDao = logAggregatorTool.buildAuditDao(null, 0, null, LogAggregatorToolConstants.PROCESS_FAILED, null, "No Arguments provided");
             DataBaseConnection dataBaseConnection = new DataBaseConnection();
             dataBaseConnection.insertAudit(auditDao);
             return true;
@@ -40,7 +40,7 @@ public class LogAggregatorValidator {
         if (!folderPath.exists() || !folderPath.isDirectory()) {
             System.out.println(LogAggregatorToolConstants.INVALID_FOLDER);
             LogAggregatorToolUtil logAggregatorTool = new LogAggregatorToolUtil();
-            auditDao = logAggregatorTool.logAggregatorToolUtil(userInputFolderPath, 0, null, LogAggregatorToolConstants.PROCESS_FAILED, null, "Error");
+            AuditDao auditDao = logAggregatorTool.buildAuditDao(userInputFolderPath, 0, null, LogAggregatorToolConstants.PROCESS_FAILED, null, "Invalid Folder");
             DataBaseConnection dataBaseConnection = new DataBaseConnection();
             dataBaseConnection.insertAudit(auditDao);
             return false;
@@ -59,7 +59,7 @@ public class LogAggregatorValidator {
         if (files.length == 0) {
             System.out.println(LogAggregatorToolConstants.FOLDER_EMPTY);
             LogAggregatorToolUtil logAggregatorTool = new LogAggregatorToolUtil();
-            auditDao = logAggregatorTool.logAggregatorToolUtil(userInputFolderPath, 0, null, LogAggregatorToolConstants.PROCESS_FAILED, null, "Error");
+            AuditDao auditDao = logAggregatorTool.buildAuditDao(userInputFolderPath, 0, null, LogAggregatorToolConstants.PROCESS_FAILED, null, "files not present");
             DataBaseConnection dataBaseConnection = new DataBaseConnection();
             dataBaseConnection.insertAudit(auditDao);
             return true;

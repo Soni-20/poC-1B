@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import static logaggregatortool.constants.LogAggregatorToolConstants.READ_ERROR;
+
 /**
  * Class for reading log file data.
  * Reads each line of log files and stores them in an ArrayList.
