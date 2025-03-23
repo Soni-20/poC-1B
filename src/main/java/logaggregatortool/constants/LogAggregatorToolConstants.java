@@ -16,8 +16,10 @@ public class LogAggregatorToolConstants {
     public static final String NEW_LINE = "\n";
     public static final String PROCESSING_MESSAGE = "Processing";
     public static final String READ_ERROR = "Error reading file:";
-    public static final String REGEX_DATETIME_PATTERN = "\\d{4}-\\d{2}-\\d{2}";
-    public static final String SIMPLE_DATE_TIME_PATTERN = "MM/dd/yyyy HH:mm:ss:sss";
+    public static final String REGEX_DATETIME_PATTERN_YMD = "(\\d{4}/\\d{2}/\\d{2} \\d{2}:\\d{2}:\\d{2}:\\d{3})";
+    public static final String REGEX_DATETIME_PATTERN_MDY = "(\\d{2}/\\d{2}/\\d{4} \\d{2}:\\d{2}:\\d{2}\\.\\d{3})";
+    public static final String SIMPLE_DATE_TIME_PATTERN_MDY = "MM/dd/yyyy HH:mm:ss.SSS";
+    public static final String SIMPLE_DATE_TIME_PATTERN_YMD = "yyyy/MM/dd HH:mm:ss:SSS";
     public static final String SORTED_FILE_PATH = "Sorted File Path : ";
     public static final String SORTED_LOG_FILE_NAME = "\\LogAggegator_Merged_File ";
     public static final String TOTAL_FILES = "Total count of files:";
