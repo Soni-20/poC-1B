@@ -6,7 +6,6 @@ group = 'org.example'
 version = '1.0-SNAPSHOT'
 
 
-
 repositories {
     mavenCentral()
 }
@@ -21,17 +20,15 @@ dependencies {
     jar {
         duplicatesStrategy = DuplicatesStrategy.EXCLUDE
         manifest {
-            attributes(                'Main-Class': 'logaggregatortool.LogAggregatorTool'        )
-            }
+            attributes('Main-Class': 'logaggregatortool.LogAggregatorTool')
+        }
         from {
-        configurations.runtimeClasspath.collect {
-            it.isDirectory() ? it : zipTree(it)
+            configurations.runtimeClasspath.collect {
+                it.isDirectory() ? it : zipTree(it)
+            }
         }
     }
-    }
 }
-
-
 test {
     useJUnitPlatform()
 }
